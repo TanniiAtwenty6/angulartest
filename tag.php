@@ -1,5 +1,5 @@
-<?php 
- $link = new mysqli("122.155.9.36", "news", "MeaNoOniHph", "db_news");
+<?php
+ $link = new mysqli("", "news", "", "db_news");
 
 if ($link->connect_errno) {
     printf("Connect failed: %s\n", $mysqli->connect_error);

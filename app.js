@@ -6,8 +6,8 @@ app.controller('MainCtrl', function($scope, $http) {
     $http.get('category.php', { cache: true}).then(function(response) {
         return $scope.category = response.data;
     });
-    
-    
+
+
   $scope.loadCountries = function($query) {
     return $http.get('tag.php?q='+$query, { cache: true}).then(function(response) {
       var countries = response.data;
@@ -17,7 +17,7 @@ app.controller('MainCtrl', function($scope, $http) {
       });
     });
   };
-    
+
  $scope.submit = function() {
     var log = '';
     angular.forEach($scope.tags, function(value, key) {
@@ -30,9 +30,9 @@ app.controller('MainCtrl', function($scope, $http) {
     });
      console.log(log+" in "+$scope.selectcategory);
 };
-    
+
      $scope.update = function() {
          console.log('change');
      };
-   
+
 });

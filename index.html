@@ -1,7 +1,35 @@
-    <meta charset="UTF-8">
-    <title>Document</title>
-</head>
-<body>
-    Tannii
-</body>
+<!DOCTYPE html>
+<html ng-app="plunker">
+
+  <head>
+    <meta charset="utf-8" />
+    <title>localhost</title>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="http://mbenford.github.io/ngTagsInput/css/ng-tags-input.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+    <script src="http://mbenford.github.io/ngTagsInput/js/ng-tags-input.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <tags-input ng-model="tags" add-on-enter="true" display-property="name" placeholder="Add a tag" replace-spaces-with-dashes="false" add-from-autocomplete-only="true">
+      <auto-complete source="loadCountries($query)"
+                     template="my-custom-template"></auto-complete>
+    </tags-input>
+
+    <script type="text/ng-template" id="my-custom-template">
+      <div class="right-panel">
+        <span ng-bind-html="$highlight($getDisplayText())"></span>
+      </div>
+    </script>
+    <select ng-model="selectcategory" ng-change="update()">
+        <option ng-repeat="x in category" value="{{x.id}}">{{x.name}}</option>
+    </select>
+      <p></p>
+    <form ng-submit="submit()">
+        <input type="submit" id="submit" value="Submit" />
+    </form>
+  </body>
+
 </html>
